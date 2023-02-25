@@ -18,9 +18,8 @@ PHP 8.1
 
 
 # shell
-git clone https://github.com/Peterbins/Docker-lamp/.git
-cd docker-compose-lamp/
-git fetch --all
-git checkout 7.4.x
-cp sample.env .env
+- git clone https://github.com/Peterbins/Docker-lamp/.git
+- cd docker-compose-lamp/
+- git fetch --all
+- git checkout 7.4.x
 docker-compose up -d
