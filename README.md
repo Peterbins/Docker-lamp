@@ -1,5 +1,5 @@
 # Docker-lamp
-Docker lamp PHP / Mysql / Phpmyadmin
+Docker lamp PHP / Mysql (latest) or Mariadb (latest) / Phpmyadmin
 
 PHP 8.1 
 - imagick
