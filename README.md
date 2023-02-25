@@ -20,4 +20,4 @@ PHP 8.1
 # shell
 - git clone https://github.com/Peterbins/Docker-lamp.git
 - cd Docker-lamp/
-- docker-compose up -d
+- sudo docker-compose up -d
