@@ -1,4 +1,5 @@
-FROM php:8.2-apache-buster
+FROM php:8.4-apache
+
 
 # Surpresses debconf complaints of trying to install apt packages interactively
 # https://github.com/moby/moby/issues/4032#issuecomment-192327844
@@ -35,6 +36,14 @@ openssl && \
     rm -rf /var/lib/apt/lists/* && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Install xdebug
+# RUN pecl install xdebug-3.1.4 && \
+#    docker-php-ext-enable xdebug && \
+#    mkdir /var/log/xdebug
+
+# Install redis
+#RUN pecl install redis-5.3.3 && \
+#     docker-php-ext-enable redis
 
 # Install imagick
 RUN apt-get update && \
