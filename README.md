@@ -1,7 +1,7 @@
 # Docker-lamp
 Docker lamp PHP / Mysql (latest) or Mariadb (latest) / Phpmyadmin
 
-PHP 8.1 
+PHP 8.4
 - imagick
 - pdo_mysql
 - pdo_sqlite
