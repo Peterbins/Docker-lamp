@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   webserver:
     hostname: ${PROJECT_NAME}-php
@@ -9,11 +11,15 @@ services:
       - "${HOST_MACHINE_SECURE_HOST_PORT}:443"
     depends_on:
       - mysql
+      - mailhog          # Zorg dat MailHog gestart is
     volumes:
       - ${DOCUMENT_ROOT:-./www}:/var/www/html
       - ${PHP_INI:-./config/php/php.ini}:/usr/local/etc/php/php.ini
       - ${VHOSTS_DIR:-./config/vhosts}:/etc/apache2/sites-enabled
       - ${LOG_DIR:-./logs/apache2}:/var/log/apache2
+    environment:
+      MAILHOG_HOST: mailhog
+      MAILHOG_PORT: 1025
 
   mysql:
     hostname: ${PROJECT_NAME}-mysql
@@ -48,3 +54,11 @@ services:
       - "8080:80"
     volumes:
       - /sessions
+
+  mailhog:
+    image: mailhog/mailhog
+    hostname: ${PROJECT_NAME}-mailhog
+    restart: always
+    ports:
+      - "8025:8025"   # Webinterface
+      - "1025:1025"   # SMTP
